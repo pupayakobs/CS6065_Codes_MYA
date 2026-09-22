@@ -62,12 +62,16 @@ def register():
         wordcount = len(filedata.decode("utf-8", errors="ignore").split())
 
         conn = get_db()
-        conn.execute(
-            "INSERT INTO users (username, password, firstname, lastname, email, address, filename, filedata, wordcount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-            (username, password, firstname, lastname, email, address, filename, filedata, wordcount)
-        )
-        conn.commit()
-        conn.close()
+        try:
+            conn.execute(
+                "INSERT INTO users (username, password, firstname, lastname, email, address, filename, filedata, wordcount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (username, password, firstname, lastname, email, address, filename, filedata, wordcount)
+            )
+            conn.commit()
+        except sqlite3.IntegrityError:
+            return "That username is already taken. <a href='/'>Go back and try another</a>"
+        finally:
+            conn.close()
 
         return redirect(url_for("display", username=username))
 
