@@ -1,13 +1,14 @@
 BASE_STYLE = """
 <style>
   body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(circle at 0% 0%, #7f7fd5, #86a8e7 50%, #91eae4);
     min-height: 100vh;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #2d3748;
   }
   .card {
     background: #ffffff;
