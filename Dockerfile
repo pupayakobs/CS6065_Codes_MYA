@@ -1,4 +1,4 @@
-# 1. Use a lightweight base image as requested by the assignment
+# 1. Use a lightweight base image
 FROM python:3.9-slim
 
 # 2. Set the working directory inside the container
