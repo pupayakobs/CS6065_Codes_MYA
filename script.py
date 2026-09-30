@@ -24,8 +24,10 @@ def process_text_files():
     
     # Standardize apostrophes first (handles smart quotes vs regular quotes)
     cleaned_text2 = file2_text.replace("’", "'").lower()
+    
     # Replace the apostrophe with a space to split contractions (e.g., "don't" becomes "don t")
     split_contraction_text2 = re.sub(r"'", " ", cleaned_text2)
+    
     # Extract all individual words
     file2_words = re.findall(r"\b\w+\b", split_contraction_text2)
     file2_count = len(file2_words)
