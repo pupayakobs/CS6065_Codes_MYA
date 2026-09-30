@@ -66,3 +66,8 @@ def process_text_files():
 
 if __name__ == "__main__":
     process_text_files()
+
+# For Extra credit
+import time
+print("Keeping container alive for Swarm orchestration...")
+time.sleep(300)  # Keeps it alive for 5 minutes 
